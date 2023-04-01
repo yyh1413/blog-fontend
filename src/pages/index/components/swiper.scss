@@ -1,0 +1,65 @@
+.main_box {
+  position: relative;
+  height: 420px;
+  border-radius: 10px;
+  overflow: hidden;
+  .show_list {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 5px 10px 0 10px;
+    height: 100%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgba($color: #000, $alpha: 0.2);
+    .show_list_item {
+      .show_list_item_image {
+        box-sizing: border-box;
+        border-radius: 10px;
+        overflow: hidden;
+        width: 100px;
+        height: 73px;
+      }
+      .show_active{
+        border: 4px solid rgb(79, 188, 252);
+      }
+    }
+  }
+
+  .time_title {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+  }
+  .test-h {
+    height: 100%;
+    image {
+      width: 100%;
+    }
+  }
+  .swiper_box {
+    height: 100%;
+    position: relative;
+    .doc_box {
+      bottom: 15px;
+      position: absolute;
+      padding-left: 20px;
+      color: #fff;
+      .doc_title {
+        font-size: 28px;
+      }
+      .doc_info {
+        display: flex;
+        align-items: center;
+        font-size: 25px;
+        .touxiang_img {
+          border-radius: 50%;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}

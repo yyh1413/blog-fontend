@@ -1,0 +1,36 @@
+.story__box {
+  height: 100vh;
+  padding: 30px;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(240, 250, 252),
+    rgb(223, 246, 255),
+    rgb(252, 228, 233),
+    // rgb(248, 240, 228)
+  );
+  background-attachment: fixed; // 背景图固定
+
+  .story__box_title {
+    margin-top: 10%;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: 500;
+  }
+  .story__box_text {
+    white-space: pre-wrap;
+  }
+  .story__box_text::after {
+    content: "|";
+    animation: blink 1s infinite;
+  }
+  @keyframes blink {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

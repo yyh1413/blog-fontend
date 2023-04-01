@@ -1,0 +1,74 @@
+.index {
+  .main_content_box {
+    margin: 0 -20px;
+    padding: 0 20px;
+    background-color: var(--bag-color);
+  }
+  .touxiang {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+    .touxiang_img {
+      width: 80px;
+      height: 80px;
+    }
+  }
+  .search_box {
+    flex: 1;
+    margin-right: 200px;
+    padding: 10px 20px;
+    background-color: rgb(245, 243, 243);
+    border-radius: 50px;
+    color: rgb(187, 187, 187);
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+    // height: 32px;
+    .icon-box-img {
+      margin-right: 15px;
+    }
+  }
+  
+
+  .main_classify_box {
+    .swiper_pre {
+      height: 208px;
+      overflow: hidden;
+    }
+    .swiper {
+      display: flex;
+      overflow-y: auto;
+      padding-bottom: 20px;
+      .swiper_item {
+        width: 280px;
+        height: 200px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        margin-right: 20px;
+        background-color: rgb(255, 255, 255);
+        .swiper_item_box {
+          width: 280px;
+          height: 150px;
+        }
+        .swiper_item_image {
+          width: 280px;
+          height: 150px;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+          overflow: hidden;
+        }
+        .text {
+          font-size: 24px;
+          line-height: 40px;
+          color: rgb(65, 65, 65);
+        }
+      }
+    }
+  }
+}

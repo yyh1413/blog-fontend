@@ -1,0 +1,24 @@
+.title_box {
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30px;
+
+  margin: 20px 0 40px;
+  padding-left: 20px;
+  padding-top: 20px;
+
+  .jinru_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    .jinru_img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}

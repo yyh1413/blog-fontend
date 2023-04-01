@@ -1,0 +1,18 @@
+.relief {
+  .relief_box {
+    // background-color: var(--bag-color);
+    height: 100%;
+    .relief_box_title {
+      display: flex;
+      justify-content: center;
+      padding: 30px 20px 0 20px;
+      font-size: 36px;
+      font-weight: 500;
+    }
+    .relief_box_content {
+      padding: 0 20px;
+      font-size: 32px;
+      white-space: pre-wrap;
+    }
+  }
+}

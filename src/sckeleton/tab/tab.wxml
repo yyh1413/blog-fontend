@@ -1,0 +1,56 @@
+<!--
+此文件为开发者工具生成，生成时间: 2023/3/30下午2:13:44
+使用方法：
+在 /Users/yangyuhaoo/project/myApp/dist/pages/mapDepot/index.wxml 引入模板
+
+```
+<import src="index.skeleton.wxml"/>
+<template is="skeleton" wx:if="{{loading}}" />
+```
+
+在 /Users/yangyuhaoo/project/myApp/dist/pages/mapDepot/index.wxss 中引入样式
+```
+@import "./index.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+  <view class="sk-container">
+    <view class="mapDepot_box" data-sid="_Ac" id="_Ac" style="true">
+      <view class="header2 dis_aj sk-transparent" data-sid="_AK" id="_AK" style="margin-top: 20px;">
+        <image class="back_img sk-image" data-sid="_AI" id="_AI" mode="scaleToFill" style="true"></image>图库</view>
+      <view class="mapDepot_box_main_box bag" data-sid="_Ab" id="_Ab" style="true">
+        <scroll-view binddragend="eh" binddragging="eh" binddragstart="eh" bounces="true" class="home__wrap" data-sid="_Aa" id="_Aa" lower-threshold="50" refresher-background="#FFF" refresher-default-style="black" refresher-enabled="true" refresher-threshold="45"
+          scroll-into-view="true" scroll-left="0" scroll-top="0" scroll-with-animation="true" scroll-y="true" show-scrollbar="true" style="height: calc(100vh - 60px);" upper-threshold="50">
+          <view class="item_box" data-sid="_AZ" id="_AZ" style="true">
+            <view class="buyer-show" data-sid="_AY" id="_AY" style="true">
+              <view class="buyer-show__container" data-sid="_AX" id="_AX" style="true">
+                <view class="buyer-show__container-left" data-sid="_AV" id="_AV" style="true">
+                  <view class="waterfal_item" data-sid="_Af" id="_Af" style="true">
+                    <image class="bor-r sk-image" data-sid="_Ae" id="_Ae" mode="scaleToFill" style="height: 272px;"></image>
+                  </view>
+                  <view class="waterfal_item" data-sid="_Ah" id="_Ah" style="true">
+                    <image class="bor-r sk-image" data-sid="_Ag" id="_Ag" mode="scaleToFill" style="height: 255px;"></image>
+                  </view>
+                  <view class="waterfal_item" data-sid="_Aj" id="_Aj" style="true">
+                    <image class="bor-r sk-image" data-sid="_Ai" id="_Ai" mode="scaleToFill" style="height: 170px;"></image>
+                  </view>
+                </view>
+                <view class="buyer-show__container-right" data-sid="_AW" id="_AW" style="true">
+                  <view class="waterfal_item" data-sid="_An" id="_An" style="true">
+                    <image class="bor-r sk-image" data-sid="_Am" id="_Am" mode="scaleToFill" style="height: 255px;"></image>
+                  </view>
+                  <view class="waterfal_item" data-sid="_Ap" id="_Ap" style="true">
+                    <image class="bor-r sk-image" data-sid="_Ao" id="_Ao" mode="scaleToFill" style="height: 255px;"></image>
+                  </view>
+                  <view class="waterfal_item" data-sid="_Ar" id="_Ar" style="true">
+                    <image class="bor-r sk-image" data-sid="_Aq" id="_Aq" mode="scaleToFill" style="height: 127px;"></image>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>

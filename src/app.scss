@@ -1,0 +1,325 @@
+page {
+  //这里限定了变量的作用域是 body
+  --bule-color: #35aed3;
+  --bag-color: rgb(248, 248, 248);
+}
+.bag {
+  background-color: var(--bag-color);
+}
+.els {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.els3 {
+  /*多行*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /*想省略几行就写几*/
+  -webkit-box-orient: vertical;
+}
+
+.link {
+  font-size: 12px;
+  font-weight: 400;
+}
+.show {
+  display: "block";
+}
+.hide {
+  display: none;
+}
+.hidden {
+  visibility: hidden;
+}
+
+.mr_10 {
+  margin-right: 10px;
+}
+.mt_10 {
+  margin-top: 10px;
+}
+.mb_10 {
+  margin-bottom: 10px;
+}
+.ml_10 {
+  margin-left: 10px;
+}
+
+.mr_15 {
+  margin-right: 15px;
+}
+.mr_20 {
+  margin-right: 20px;
+}
+.mt_15 {
+  margin-top: 15px;
+}
+.mb_15 {
+  margin-bottom: 15px;
+}
+.ml_15 {
+  margin-left: 15px;
+}
+.mb_20 {
+  margin-bottom: 20px;
+}
+.mb_30 {
+  margin-bottom: 30px;
+}
+.ml_20 {
+  margin-left: 20px;
+}
+.dis_ac {
+  display: flex;
+  align-items: center;
+}
+
+.dis_aj {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cup {
+  cursor: pointer;
+}
+.dis_asb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dis_ase {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.dis_jc {
+  display: flex;
+  justify-content: center;
+}
+.dis_jsb {
+  display: flex;
+  justify-content: space-between;
+}
+.div_height_32 {
+  height: 32px;
+}
+
+.bag_fff {
+  background-color: #fff;
+}
+
+.no-item-style {
+  margin-bottom: 0 !important;
+}
+
+.box-sha {
+  box-shadow: 0px 0px 6px #e4e4e4;
+}
+.box-sha1 {
+  box-shadow: 0px 0px 10px #b3b3b3;
+}
+.bor-r {
+  border-radius: 10px;
+}
+.bor_r1 {
+  border-radius: 30px;
+}
+.text0 {
+  font-size: 30px;
+  font-weight: 500;
+}
+.text1 {
+  font-size: 26px;
+  font-weight: 320;
+  color: rgb(41, 41, 41);
+}
+
+.text2 {
+  font-size: 22px;
+  font-weight: 320;
+  color: rgb(180, 180, 180);
+}
+.text3 {
+  font-size: 23px;
+  font-weight: 320;
+  color: rgb(109, 109, 109);
+}
+.text4 {
+  font-size: 24px;
+  font-weight: 320;
+  color: rgb(54, 54, 54);
+}
+.text5 {
+  font-size: 24px;
+  color: rgb(54, 54, 54);
+}
+
+.shu::before {
+  position: absolute;
+  margin-top: 7px;
+  margin-left: -20px;
+  height: 30px;
+  width: 6px;
+  background: #437fda;
+  border-radius: 10px;
+  content: "";
+}
+// 放大缩小
+.anima {
+  animation-name: likes; // 动画名称
+  animation-direction: alternate; // 动画在奇数次（1、3、5...）正向播放，在偶数次（2、4、6...）反向播放。
+  animation-timing-function: linear; // 动画执行方式，linear：匀速；ease：先慢再快后慢；ease-in：由慢速开始；ease-out：由慢速结束；ease-in-out：由慢速开始和结束；
+  animation-delay: 0s; // 动画延迟时间
+  animation-iteration-count: infinite; //  动画播放次数，infinite：一直播放
+  animation-duration: 1.5s; // 动画完成时间
+}
+
+@keyframes likes {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(0.85);
+  }
+  75% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+// 放大缩小
+.anima1 {
+  animation-name: likes; // 动画名称
+  animation-direction: alternate; // 动画在奇数次（1、3、5...）正向播放，在偶数次（2、4、6...）反向播放。
+  animation-timing-function: linear; // 动画执行方式，linear：匀速；ease：先慢再快后慢；ease-in：由慢速开始；ease-out：由慢速结束；ease-in-out：由慢速开始和结束；
+  animation-delay: 0s; // 动画延迟时间
+  animation-iteration-count: infinite; //  动画播放次数，infinite：一直播放
+  animation-duration: 3s; // 动画完成时间
+}
+
+@keyframes likes {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+.float_s_x_0 {
+  animation-name: float_s_x_name; // 动画名称
+  // animation-direction: alternate; // 动画在奇数次（1、3、5...）正向播放，在偶数次（2、4、6...）反向播放。
+  // animation-timing-function: linear; // 动画执行方式，linear：匀速；ease：先慢再快后慢；ease-in：由慢速开始；ease-out：由慢速结束；ease-in-out：由慢速开始和结束；
+  animation-delay: 0s; // 动画延迟时间
+  animation-iteration-count: infinite; //  动画播放次数，infinite：一直播放
+  animation-duration: 4s; // 动画完成时间
+}
+
+@keyframes float_s_x_name {
+  0% {
+    -webkit-transform: translateY(0px);
+  }
+  25% {
+    -webkit-transform: translateY(-6px);
+  }
+  50% {
+    -webkit-transform: translateY(-13px);
+  }
+  75% {
+    -webkit-transform: translateY(-7px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+  }
+}
+
+.float_s_x_1 {
+  animation-name: float_s_x_name_1; // 动画名称
+  // animation-direction: alternate; // 动画在奇数次（1、3、5...）正向播放，在偶数次（2、4、6...）反向播放。
+  // animation-timing-function: linear; // 动画执行方式，linear：匀速；ease：先慢再快后慢；ease-in：由慢速开始；ease-out：由慢速结束；ease-in-out：由慢速开始和结束；
+  animation-delay: 0s; // 动画延迟时间
+  animation-iteration-count: infinite; //  动画播放次数，infinite：一直播放
+  animation-duration: 4s; // 动画完成时间
+}
+
+@keyframes float_s_x_name_1 {
+  0% {
+    -webkit-transform: translateY(0px);
+  }
+  25% {
+    -webkit-transform: translateY(3px);
+  }
+  50% {
+    -webkit-transform: translateY(10px);
+  }
+  75% {
+    -webkit-transform: translateY(3px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+  }
+}
+
+.float_s_x_2 {
+  animation-name: float_s_x_name_2; // 动画名称
+  animation-delay: 0s; // 动画延迟时间
+  animation-iteration-count: infinite; //  动画播放次数，infinite：一直播放
+  animation-duration: 4s; // 动画完成时间
+}
+
+@keyframes float_s_x_name_2 {
+  0% {
+    -webkit-transform: translateY(0px);
+  }
+  25% {
+    -webkit-transform: translateY(8px);
+  }
+  50% {
+    -webkit-transform: translateY(0px);
+  }
+  75% {
+    -webkit-transform: translateY(-8px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+  }
+}
+
+.list_animation {
+  animation: slideInLeft 1s ease;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translatey(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translatey(0px);
+    opacity: 1;
+  }
+}
+
+.skeleton_box {
+  display: flex;
+  view {
+    width: 100%;
+  }
+}
+
+.padding_0 {
+  padding: 0;
+}
+
+.skeleton {
+  padding: 10px 20px !important;
+}

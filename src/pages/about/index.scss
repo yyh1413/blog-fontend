@@ -1,0 +1,109 @@
+.about {
+  background-color: var(--bag-color);
+  height: 100vh;
+  width: 100%;
+
+  .about_top_box {
+    height: 35vh;
+    background-image: url("https://img0.baidu.com/it/u=1920988612,343335112&fm=253&fmt=auto&app=138&f=JPEG?w=1024&h=456");
+    background-repeat: no-repeat;
+    background-position: right;
+    // background-size: 100% 35vh; // 背景图适配屏幕分辨率
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    padding-top: 25%;
+
+    .about_top_box_tx_bor {
+      width: 150px;
+      height: 150px;
+      background-color: #fff;
+      border-radius: 50%;
+      .about_top_box_tx {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+    }
+    .name {
+      font-size: 36px;
+    }
+    .dec {
+      font-size: 24px;
+    }
+  }
+
+  .sum {
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-weight: 500;
+    .sum_item {
+      width: 33%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0;
+      border-right: 1px solid rgb(241, 241, 241);
+      border-bottom: 1px solid rgb(240, 240, 240);
+      .num0,
+      .num3 {
+        color: rgb(224, 168, 84);
+      }
+      .num1,
+      .num4 {
+        color: rgb(82, 129, 199);
+      }
+      .num2,
+      .num5 {
+        color: rgb(63, 172, 87);
+      }
+    }
+    .sum_item:nth-child(4),
+    .sum_item:nth-child(5),
+    .sum_item:nth-child(6) {
+      border-bottom: 0;
+    }
+    .sum_item:nth-child(3),
+    .sum_item:nth-child(6) {
+      border-right: 0;
+    }
+  }
+
+  .bottom_box {
+    padding: 20px 20px 0 20px;
+
+    .bottom_box_content {
+      margin-top: 20px;
+      padding: 0 20px;
+      background-color: #fff;
+      border-radius: 20px;
+      .bottom_box_item {
+        display: flex;
+        align-items: center;
+        padding: 20px 0;
+        margin: 20px;
+        border-bottom: 1px solid rgb(240, 240, 240);
+      }
+      .bottom_box_item:last-child {
+        border-bottom: 0;
+      }
+      .bottom_box_item_text {
+        font-size: 26px;
+        font-weight: 400;
+        flex: 1;
+      }
+      .bottom_box_item_icom,
+      .jinru_img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+}

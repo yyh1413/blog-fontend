@@ -1,0 +1,20 @@
+.buyer-show {
+  .buyer-show__container {
+    display: flex;
+    padding: 0 20px;
+    justify-content: space-between;
+    .buyer-show__container-left,
+    .buyer-show__container-right {
+      .waterfal_item {
+        margin: 10px 0;
+      }
+      width: 49%;
+      image {
+        width: 100%;
+      }
+    }
+  }
+  .buyer-show__container-v {
+    display: none;
+  }
+}
