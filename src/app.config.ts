@@ -35,8 +35,8 @@ export default defineAppConfig({
       {
         pagePath: "pages/love/index",
         text: "和她",
-        iconPath: "assets/image/tabs/31wode.png",
-        selectedIconPath: "assets/image/tabs/wode-.png",
+        iconPath: "assets/image/tabs/aixin.png",
+        selectedIconPath: "assets/image/tabs/aixin_1.png",
       },
       {
         pagePath: "pages/about/index",

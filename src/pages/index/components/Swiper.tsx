@@ -5,6 +5,7 @@ import { handlePublishTimeDesc } from '../../../utils/utils';
 import Time from '../../../components/time/index'
 import './swiper.scss'
 import { useState } from 'react';
+import common from '../../../utils/common';
 
 function Index(props: { data: IEssay[] }) {
 	const [current, setCurrent] = useState(0)
@@ -42,9 +43,10 @@ function Index(props: { data: IEssay[] }) {
 										{v.title}
 									</View>
 									<View className='doc_info'>
+
 										<Image className='touxiang_img mr_10'
 											style={{ width: 30, height: 30 }}
-											src={require('../../../assets/image/main/touxiang.jpeg')}
+											src={common.protraitN}
 										></Image>
 										<Text className='mr_10'>
 											{v.userName}

@@ -11,18 +11,19 @@ import { getEssayData } from '../../api/main'
 import { IEssay } from 'src/interface/essay'
 import Skeleton from './skeleton'
 import { getCurrentInstance } from '@tarojs/taro'
+import common from '../../utils/common'
 // const text = styleText + textDemo
 interface IProps {
   // _id: string
 }
-const Index: FC<IProps> = (props) => {
+const Index: FC<IProps> = () => {
   const [data, setData] = useState<IEssay>();
   useEffect(() => {
     fetchData()
   }, [])
   function fetchData() {
     const { router } = getCurrentInstance();
-  
+
     getEssayData({ _id: router?.params?._id }).then(res => {
       const { code, data } = res;
       if (code === 200) {
@@ -84,7 +85,7 @@ const Index: FC<IProps> = (props) => {
               <View className='text1'>分类：</View>
               <>
                 {
-                  data?.classfiy.map((v, i) => (<View className='label'>{v}</View>))
+                  data?.classfiy.map((v) => (<View className='label'>{v}</View>))
                 }
               </>
             </View>
@@ -92,13 +93,14 @@ const Index: FC<IProps> = (props) => {
               <View className='text1'>标签：</View>
               <>
                 {
-                  data?.label.map((v, i) => (<View className='label1'>{v}</View>))
+                  data?.label.map((v) => (<View className='label1'>{v}</View>))
                 }
               </>
             </View>
 
           </View>
           <View className='context bor-r mb_20'>
+            {/* @ts-ignore */}
             <parcer content={data?.content ? styleText + data.content : ''} />
             {/* <parcer content={text} /> */}
           </View>
@@ -127,12 +129,13 @@ const Index: FC<IProps> = (props) => {
             </View>
             <View className=''>
               {
-                [1, 2, 3, 4].map(i => {
+                [1, 2, 3, 4].map(() => {
                   return (
                     <View className='remark_item'>
                       <View className='remark_item_box'>
                         <Image className='touxiang_img bor-r'
-                          src={require('../../assets/image/main/touxiang.jpeg')}
+                          src={common.protraitN}
+
                         ></Image>
                         <View className='info'>
                           <View className='dis_ac title'>

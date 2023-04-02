@@ -2,9 +2,9 @@ import { FC, useEffect, useRef } from 'react'
 import { View, Image } from '@tarojs/components'
 import './index.scss'
 import common from '../../../../utils/common'
-import utils from '../../../../utils/utils'
+import { diffDate } from '../../../../utils/utils'
 const Index: FC = () => {
-	const d = utils.diffDate();
+	const d = diffDate();
 
 	return (
 		<View className='love_list_page__box'>

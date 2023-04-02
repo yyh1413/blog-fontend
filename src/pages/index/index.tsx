@@ -1,5 +1,5 @@
 import { Component, PropsWithChildren } from 'react'
-import { View, Image, Icon, ScrollView } from '@tarojs/components'
+import { View, Image, Icon } from '@tarojs/components'
 import './index.scss'
 import Header from '../../components/header'
 import { connect, } from 'react-redux'
@@ -11,6 +11,7 @@ import RefreshScrollView from '../../components/refresh/index'
 import { getEssayData } from '../../api/main'
 import IndexSkeleton from './skeleton'
 import { IEssay } from 'src/interface/essay'
+import common from '../../utils/common'
 class Index extends Component<PropsWithChildren> {
 
   state = {
@@ -57,8 +58,9 @@ class Index extends Component<PropsWithChildren> {
         <Header>
           <View className='touxiang'>
             <Image className='touxiang_img'
-              src={require('../../assets/image/main/touxiang.jpeg')}
-            ></Image>
+              src={common.protraitN}
+            />
+
           </View>
           <View className='search_box' style={{ height: 22 }} onClick={() => this.handleGoSearch()}>
             <Icon className="icon-box-img" type="search" size="16"></Icon>

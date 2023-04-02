@@ -1,9 +1,8 @@
 import { FC, useEffect, useMemo, useState } from 'react'
-import { MovableArea, Map, View, Image, Text } from '@tarojs/components'
+import {  View, Image, Text } from '@tarojs/components'
 import './index.scss'
-import RefreshScrollView from '../../components/refresh/index'
 import Corrugation from '../../components/corrugation'
-import utils from '../../utils/utils'
+import { diffDate, getCurrentTime } from '../../utils/utils'
 import common from '../../utils/common'
 
 
@@ -11,18 +10,18 @@ let interval
 const Index: FC = () => {
 
   const [time, setTime] = useState({
-    d: utils.diffDate(),
+    d: diffDate(),
     hh: '',
     mm: '',
     ss: '',
   })
 
-  const birthday = useMemo(() => utils.diffDate('2024-01-16'), [])
+  const birthday = useMemo(() => diffDate('2024-01-16'), [])
   useEffect(() => {
     interval = setInterval(() => {
-      const { hh, mm, ss } = utils.getCurrentTime()
+      const { hh, mm, ss } = getCurrentTime()
       setTime({
-        d: utils.diffDate(), hh, mm, ss
+        d: diffDate(), hh, mm, ss
       })
     }, 1000)
     return () => {
