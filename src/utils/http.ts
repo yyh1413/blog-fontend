@@ -1,4 +1,5 @@
 import Taro from "@tarojs/taro";
+import { NODE_DEV_API, NODE_PRODUCTION_API } from "./config";
 
 // 错误定义
 const HTTP_STATUS = {
@@ -18,11 +19,10 @@ const HTTP_STATUS = {
 // 获取基础域名
 const getBaseUrl = () => {
   let BASE_URL = "";
-
   if (process.env.NODE_ENV === "development") {
-    BASE_URL = process.env.NODE_API!;
+    BASE_URL = NODE_DEV_API;
   } else {
-    BASE_URL = "http://172.0.0.1:8000/";
+    BASE_URL = NODE_PRODUCTION_API;
   }
   return BASE_URL;
 };
@@ -61,14 +61,14 @@ interface IResult<T> {
   msg: string;
   data: T;
 }
+
 const request = <T>(url: string, param = {}, method, header = {}) => {
+ 
   Taro.showLoading({
     title: "加载中",
   });
-  // const BASE_URL = getBaseUrl();
-  // const BASE_URL = "http://127.0.0.1:8000/";
-  const BASE_URL = "http://10.4.95.50:8000/";
-
+  const BASE_URL = getBaseUrl();
+  
   const handleHeader = {
     "content-type": "application/json",
     ...header,
