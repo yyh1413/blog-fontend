@@ -58,7 +58,7 @@ function getTs(time) {
   const timeStr = Date.parse(time);
   return timeStr;
 }
-// 
+//
 function handlePublishTimeDesc(post_modified) {
   // 拿到当前时间戳和发布时的时间戳，然后得出时间戳差
   var curTime = new Date();
@@ -108,4 +108,35 @@ function handlePublishTimeDesc(post_modified) {
     }
   }
 }
-export { diffDate, getCurrentTime, getWeek, formatDate, handlePublishTimeDesc };
+
+/**
+ * 把json对象拆成url参数格式的方法
+ * @data 需要处理的json对象
+ */
+const getParam = (data: any) => {
+  let url = "";
+  for (const k in data) {
+    const value = data[k] !== undefined ? data[k] : "";
+    // url += `&${k}=${encodeURIComponent(value)}`;
+    url += `&${k}=${value}`;
+  }
+  return url ? url.substring(1) : "";
+};
+/**
+ * //获取带参数的url方法 将参数拼到url后面
+ * @param url  url;
+ * @param data 参数
+ * @returns  拼接后的url
+ */
+const urlEncode = (url: string, data: any) => {
+  //看原始url地址中开头是否带?，然后拼接处理好的参数
+  return (url += (url.indexOf("?") < 0 ? "?" : "") + getParam(data));
+};
+export {
+  diffDate,
+  getCurrentTime,
+  getWeek,
+  formatDate,
+  handlePublishTimeDesc,
+  urlEncode,
+};

@@ -1,0 +1,52 @@
+.ai_box {
+  .ai_scrollview_box {
+    // background-color: rgb(255, 253, 253);
+    .modle_item {
+      padding: 0 10px;
+      .modle_item_title {
+        margin-top: 15px;
+        margin-bottom: 0;
+        font-weight: 700;
+        font-size: 32px;
+        padding: 10px;
+        color: #0e42d2;
+      }
+      .modle_item_box {
+        display: flex;
+        flex-wrap: wrap;
+        .item_box_padding {
+          box-sizing: border-box;
+          padding: 15px;
+          width: 50%;
+        }
+      }
+      .item_box {
+        background-color: #fff;
+        height: 230px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+        padding: 16px;
+        text-align: center;
+        .item_image_box {
+          margin-bottom: 10px;
+        }
+        .item_image {
+          width: 80px;
+          height: 80px;
+        }
+        .item_title {
+          font-weight: 700;
+          font-size: 32px;
+        }
+        .item_dec {
+          margin-top: 10px;
+          font-size: 24px;
+          color: rgba($color: #575757, $alpha: 1);
+        }
+      }
+    }
+  }
+}

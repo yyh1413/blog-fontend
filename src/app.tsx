@@ -2,10 +2,10 @@ import configStore from './store/store'
 import { Provider } from "react-redux";
 import './app.scss'
 import 'taro-skeleton/dist/index.css' // 引入组件样式
+import 'taro-ui/dist/style/index.scss' // 全局引入一次即可
 
 const store = configStore();
 function App(props: any) {
-
     return (
         <Provider store={store}>
             {props.children}

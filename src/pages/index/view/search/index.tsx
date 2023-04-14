@@ -1,13 +1,13 @@
 import { FC, useEffect, useState } from 'react'
 import { View, Text, Image, Input } from '@tarojs/components'
 import './index.scss'
-import Header from '../../components/header/Header'
-import EssayItem from '../../components/essayItem/EssayItem'
-import RefreshScrollView from '../../components/refresh/index'
+import Header from '../../../../components/header/Header'
+import EssayItem from '../../../../components/essayItem/EssayItem'
+import RefreshScrollView from '../../../../components/refresh/index'
 import Skeleton from '../classfiy/skeleton'
-import util from '../../utils/common'
-import { IEssay } from '../../interface/essay'
-import { getEssayData } from '../../api/main'
+import util from '../../../../utils/common'
+import { IEssay } from '../../../../interface/essay'
+import { getEssayData } from '../../../../api/main'
 import { getCurrentInstance } from '@tarojs/taro'
 const Index: FC = () => {
   const { router } = getCurrentInstance();
@@ -40,7 +40,7 @@ const Index: FC = () => {
       <View className='header'>
         <View className='header_search '>
           <Image className="icon-box-img"
-            src={require('../../assets/image/main/search.svg')}
+            src={require('../../../../assets/image/main/search.svg')}
           ></Image>
           <Input type='text' placeholder='请输入关键词'
             style={{ height: "50px", paddingLeft: "5px", flex: 1 }}

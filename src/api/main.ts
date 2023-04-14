@@ -15,5 +15,9 @@ function getEssayData(param?: IEssayParam) {
 function getClassfiyData(param?: any) {
   return api.get<IClassfiy[]>("api/blog/getClassfig", param);
 }
+// 获取总数
+function getEssayCount() {
+  return api.get<any[]>("api/blog/getEssayCount");
+}
 
-export { getEssayData, getClassfiyData };
+export { getEssayData, getClassfiyData, getEssayCount };

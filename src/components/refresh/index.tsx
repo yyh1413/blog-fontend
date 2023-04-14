@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { ScrollView } from '@tarojs/components';
-import './index.scss'
 import Taro from '@tarojs/taro';
 interface Iprops {
     height?: number,

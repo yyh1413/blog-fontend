@@ -19,7 +19,7 @@ const Index: FC = () => {
                 if (flag) {
                     dom!.innerHTML = str
                 }
-                setTimeout(writing.bind(this), !flag ? 0 : 200, ++index)
+                setTimeout(writing.bind(this), !flag ? 0 : 100, ++index)
             }
         }
         writing(index)

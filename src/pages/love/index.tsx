@@ -1,5 +1,5 @@
 import { FC, useEffect, useMemo, useState } from 'react'
-import {  View, Image, Text } from '@tarojs/components'
+import { View, Image, Text } from '@tarojs/components'
 import './index.scss'
 import Corrugation from '../../components/corrugation'
 import { diffDate, getCurrentTime } from '../../utils/utils'
@@ -40,7 +40,7 @@ const Index: FC = () => {
               src={common.protraitN}
             />
           </View>
-          <View className='dis_jc mb_30'>星星泡饭</View>
+          <View className='dis_jc mb_20 mt_10'>小羊</View>
           <View className='dis_jc touxiang_box_content_text'>
             02月08日
             <Text className='some_font'>（2022）</Text>
@@ -59,7 +59,7 @@ const Index: FC = () => {
               src={common.protraitW}
             />
           </View>
-          <View className='dis_jc mb_30'>地球炒蛋</View>
+          <View className='dis_jc  mb_20 mt_10'>橙砸</View>
           <View className='dis_jc touxiang_box_content_text'>
             {birthday}
             <Text className='some_font'>（天）</Text>

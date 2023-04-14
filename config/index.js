@@ -66,7 +66,7 @@ const config = {
       }
     },
 
-    esnextModules: ['taro-ui','taro-skeleton']
+    esnextModules: ['taro-ui', 'taro-skeleton']
   },
   rn: {
     appName: 'taroDemo',
@@ -79,6 +79,7 @@ const config = {
 }
 
 module.exports = function (merge) {
+
   if (process.env.NODE_ENV === 'development') {
     return merge({}, config, require('./dev'))
   }

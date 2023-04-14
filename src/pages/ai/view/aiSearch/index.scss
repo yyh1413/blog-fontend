@@ -1,0 +1,68 @@
+.ai_search_box {
+  .ai_search_box_scrollview {
+    padding: 0 20px;
+    .title_box {
+      margin: 40px 0;
+      image {
+        width: 60px;
+        height: 60px;
+        vertical-align: bottom;
+        margin-right: 10px;
+      }
+      .title {
+        font-size: 40px;
+        font-weight: 700;
+      }
+    }
+
+    .dec {
+      font-size: 26px;
+      color: rgb(126, 126, 126);
+      margin-bottom: 30px;
+    }
+    .demo_box {
+      display: flex;
+      .demo {
+        display: flex;
+        align-items: center;
+        font-size: 26px;
+        padding: 10px 20px;
+        margin-right: 30px;
+        cursor: pointer;
+      }
+
+      .clo1 {
+        background-color: rgba(232, 255, 234);
+        color: rgba(0, 180, 42);
+      }
+      .clo2 {
+        background-color: rgba(255, 232, 251);
+        color: rgba(217, 26, 217);
+      }
+      .clo3 {
+        background-color: rgba(232, 247, 255);
+        color: rgba(52, 145, 250);
+      }
+    }
+    .textarea {
+      margin: 30px 0;
+      border: 1px solid #ddd;
+      padding: 10px;
+      textarea {
+        width: 100%;
+      }
+    }
+
+    .g_but {
+      background-color: #165dff;
+      margin-bottom: 20px;
+    }
+    .content {
+      width: 94%;
+      min-height: 400px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      margin-bottom: 20px;
+    }
+  }
+}

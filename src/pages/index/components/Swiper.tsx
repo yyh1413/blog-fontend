@@ -11,7 +11,7 @@ function Index(props: { data: IEssay[] }) {
 	const [current, setCurrent] = useState(0)
 	const handlePage = (_id: string) => {
 		Taro.navigateTo({
-			url: "/pages/essayInfo/index?_id=" + _id,
+			url: "/pages/index/view/essayInfo/index?_id=" + _id,
 		});
 	}
 	return (

@@ -8,7 +8,8 @@ const Index: FC<Iprops> = (props) => {
 
 	return (
 		<View className=" waveAnimation">
-			<Image style={props?.style} className=" waveAnimation_image" src="https://codermoyv.gitee.io/coder-moyv/assets/images/wechat/bg_wave.gif"></Image>
+			<Image style={props?.style} className=" waveAnimation_image"
+				src="https://codermoyv.gitee.io/coder-moyv/assets/images/wechat/bg_wave.gif"></Image>
 
 		</View>
 

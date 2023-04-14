@@ -29,19 +29,13 @@
           "name": "pages/index/index",
           "pathName": "pages/index/index",
           "query": "",
+          "launchMode": "default",
           "scene": null
         },
         {
           "name": "pages/essayInfo/index",
           "pathName": "pages/essayInfo/index",
           "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/mapDepot/index",
-          "pathName": "pages/mapDepot/index",
-          "query": "",
-          "launchMode": "default",
           "scene": null
         },
         {
@@ -85,10 +79,32 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "pages/ai/index",
+          "pathName": "pages/ai/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/ai/view/aiSearch/index",
+          "pathName": "pages/ai/view/aiSearch/index",
+          "query": "title=%E9%97%AE%E7%AD%94%20%F0%9F%94%A5&desc=%E6%A0%B9%E6%8D%AE%E6%82%A8%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E5%87%86%E7%A1%AE%E7%9A%84%E5%9B%9E%E7%AD%94%E4%BD%A0%E7%9A%84%E9%97%AE%E9%A2%98&type=bk&icon=https%3A%2F%2Fassets.5a8.org%2Faitxt%2Fassets%2Fbk.png&deom1=%E8%8F%A0%E8%90%9D%E5%B1%9E%E4%BA%8E%E4%BB%80%E4%B9%88%E7%B1%BB%E6%B0%B4%E6%9E%9C%EF%BC%9F&deom2=%E5%BD%A9%E8%99%B9%E7%9A%84%E9%A1%B6%E9%83%A8%E6%98%AF%E4%BB%80%E4%B9%88%E9%A2%9C%E8%89%B2%E7%9A%84%EF%BC%9F&deom3=%E4%BB%8E%E5%93%AA%E4%B8%AA%E9%83%A8%E4%BD%8D%E5%8F%AF%E4%BB%A5%E7%9F%A5%E9%81%93%E9%A9%AC%E7%9A%84%E5%B9%B4%E9%BE%84",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/love/view/mapDepot/index",
+          "pathName": "pages/love/view/mapDepot/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
   },
   "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
-  "projectname": "mytaro"
+  "projectname": "mytaro",
+  "libVersion": "2.30.4"
 }

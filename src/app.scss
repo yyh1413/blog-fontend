@@ -75,6 +75,9 @@ page {
   display: flex;
   align-items: center;
 }
+.dis {
+  display: flex;
+}
 
 .dis_aj {
   display: flex;
@@ -92,7 +95,7 @@ page {
 .dis_ase {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .dis_jc {
   display: flex;
@@ -306,6 +309,34 @@ page {
   to {
     transform: translatey(0px);
     opacity: 1;
+  }
+}
+
+.tro-color {
+  animation: troColor;
+  animation-delay: 0s; // 动画延迟时间
+  animation-iteration-count: infinite; //  动画播放次数，infinite：一直播放
+  animation-duration: 8s; // 动画完成时间
+}
+
+@keyframes troColor {
+  0% {
+    color: rgb(94, 158, 201);
+  }
+  25% {
+    color: #9c4de6;
+  }
+  50% {
+    color: #db4559;
+  }
+  65% {
+    color: #e69465;
+  }
+  80% {
+    color: #53d8c2;
+  }
+  100% {
+    color: #5382d8;
   }
 }
 

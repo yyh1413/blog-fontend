@@ -1,4 +1,5 @@
 import Taro from "@tarojs/taro";
+import { CACHE_CODE, CACHE_TOKEN, CACHE_USERINFO } from "./authority/config";
 import { NODE_DEV_API, NODE_PRODUCTION_API } from "./config";
 
 // 错误定义
@@ -21,34 +22,24 @@ const getBaseUrl = () => {
   let BASE_URL = "";
   if (process.env.NODE_ENV === "development") {
     BASE_URL = NODE_DEV_API;
+    // BASE_URL = NODE_PRODUCTION_API;
   } else {
     BASE_URL = NODE_PRODUCTION_API;
   }
   return BASE_URL;
 };
 
-// 拦截器
-const interceptor = (chain) => {
-  const requestParams = chain.requestParams;
-  return chain.proceed(requestParams).then((res) => {
-    if (res.statusCode === HTTP_STATUS.NOT_FOUND) {
-      return Promise.reject("请求资源不存在");
-    } else if (res.statusCode === HTTP_STATUS.BAD_GATEWAY) {
-      return Promise.reject("服务端出现问题");
-    } else if (res.statusCode === HTTP_STATUS.FORBIDDEN) {
-      return Promise.reject("无权访问");
-    } else if (res.statusCode === HTTP_STATUS.AUTHENTICATE) {
-      return Promise.reject("需要鉴权");
-    } else {
-      return res.data;
-    }
-  });
-};
-
-// 添加拦截器
-Taro.addInterceptor(interceptor);
-Taro.addInterceptor(Taro.interceptors.logInterceptor);
-
+function handleError(res, reject) {
+  if (res.code === 401) {
+    Taro.setStorageSync(CACHE_TOKEN, undefined);
+    Taro.setStorageSync(CACHE_CODE, undefined);
+    Taro.setStorageSync(CACHE_USERINFO, undefined);
+    // Taro.redirectTo({
+    //   url: "/pages/login/index",
+    // });
+    reject();
+  }
+}
 function formatData<T>(data: IResult<T>) {
   return {
     code: data.code,
@@ -62,15 +53,16 @@ interface IResult<T> {
   data: T;
 }
 
-const request = <T>(url: string, param = {}, method, header = {}) => {
- 
+const request = <T,>(url: string, param = {}, method, header = {}) => {
   Taro.showLoading({
     title: "加载中",
   });
   const BASE_URL = getBaseUrl();
-  
+  const token = Taro.getStorageSync(CACHE_TOKEN);
+
   const handleHeader = {
     "content-type": "application/json",
+    Authorization: `Bearer ` + token,
     ...header,
   };
   return new Promise<IResult<T>>((resolve, reject) => {
@@ -84,8 +76,12 @@ const request = <T>(url: string, param = {}, method, header = {}) => {
       ...options,
       success(result) {
         const { data } = result;
-        const res = formatData<T>(data);
-        resolve(res);
+        if (data.code !== 200) {
+          handleError(data, reject);
+        } else {
+          const res = formatData<T>(data);
+          resolve(res);
+        }
       },
       fail(e) {
         console.log("网络异常");

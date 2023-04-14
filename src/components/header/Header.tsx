@@ -6,18 +6,19 @@ import Taro from '@tarojs/taro';
 
 interface Iprops {
     title?: string,
+    back?: boolean
 }
 const Index: FC<Iprops> = (props) => {
-    const { title } = props;
+    const { title, back = true } = props;
     const re_state = useSelector(state => state);
     const handleGoBack = () => {
         Taro.navigateBack();
     }
     return (
         <View className='header2 dis_aj' style={{ marginTop: re_state.SysInfo.safeBottom }}>
-            <Image className='back_img' onClick={handleGoBack}
+            {back && <Image className='back_img' onClick={handleGoBack}
                 src={require('../../assets/image/main/back.svg')}
-            ></Image>
+            ></Image>}
             {title}
         </View>
     )

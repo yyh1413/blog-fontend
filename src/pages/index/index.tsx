@@ -1,5 +1,5 @@
 import { Component, PropsWithChildren } from 'react'
-import { View, Image, Icon } from '@tarojs/components'
+import { View, Image, Icon, Button } from '@tarojs/components'
 import './index.scss'
 import Header from '../../components/header'
 import { connect, } from 'react-redux'
@@ -12,6 +12,7 @@ import { getEssayData } from '../../api/main'
 import IndexSkeleton from './skeleton'
 import { IEssay } from 'src/interface/essay'
 import common from '../../utils/common'
+import { CACHE_CODE, CACHE_TOKEN, CACHE_USERINFO } from '../../utils/authority/config'
 class Index extends Component<PropsWithChildren> {
 
   state = {
@@ -20,31 +21,41 @@ class Index extends Component<PropsWithChildren> {
   }
 
   componentDidMount() {
+    //有token时，不需要重新登录
     this.init();
+
+    // const token = Taro.getStorageSync(CACHE_CODE);
+    // if (token) {
+    //   this.init();
+    // } else {
+    //   Taro.redirectTo({
+    //     url: "/pages/login/index",
+    //   });
+    // }
   }
   private init = () => {
-
     getEssayData().then(res => {
       this.setState({ data: res.data })
-    }).finally(() => {
       this.setState({ loading: false })
     })
-
-    // get()
   }
   private handleGoSearch = (type = 0) => {
     Taro.navigateTo({
-      url: "/pages/search/index?type=" + type,
+      url: "/pages/index/view/search/index?type=" + type,
     });
   }
   private handleGoEssay = (classfiyName?: string) => {
-    const url = "/pages/classfiy/index" + (classfiyName ? `?classfiyName=` + classfiyName : "")
-    console.log(url);
+    const url = "/pages/index/view/classfiy/index" + (classfiyName ? `?classfiyName=` + classfiyName : "")
 
     Taro.navigateTo({ url });
   }
   private refresh = (endLoading) => {
     endLoading()
+  }
+  private clear = (endLoading) => {
+    Taro.setStorageSync(CACHE_TOKEN, undefined);
+    Taro.setStorageSync(CACHE_CODE, undefined);
+    Taro.setStorageSync(CACHE_USERINFO, undefined);
   }
 
   render() {
@@ -73,6 +84,7 @@ class Index extends Component<PropsWithChildren> {
           refresh={this.refresh}
         >
           <View style={{ padding: '0 10px' }}>
+            {/* <Button onClick={this.clear}>点击</Button> */}
             <Swiper data={data} />
             <View className='main_content_box'>
               <Classify handleGoEssay={this.handleGoEssay} />

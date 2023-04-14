@@ -1,33 +1,38 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { View, Image } from '@tarojs/components'
 import './index.scss'
 import common from '../../utils/common'
 import Corrugation from '../../components/corrugation'
 import Taro from '@tarojs/taro'
+import { getEssayCount } from '../../api/main'
+import NumberCounter from './components/addNum'
 
-const list = [
-	{ num: 10, text: '文章总数' },
-	{ num: 10, text: '文章总数' },
-	{ num: 10, text: '文章总数' },
-	{ num: 10, text: '文章总数' },
-	{ num: 10, text: '文章总数' },
-	{ num: 10, text: '文章总数' },
-]
 
-const dec_list = [
-	{
-		text: '免责声明', dec: '博客内容免责声明', icon: require('../../assets/image/main/mianze.svg'),
-		onclick: () => Taro.navigateTo({ url: '/pages/about/view/relief/index' })
-	},
-	{
-		text: '联系博主', dec: '博主常用联系方式', icon: require('../../assets/image/main/lianxifangshi.svg'),
-		onclick: () => Taro.navigateTo({ url: '/pages/about/view/contact/index' })
-	},
-	{ text: '意见反馈', dec: '博客内容意见反馈', icon: require('../../assets/image/main/yijianfankui.svg') },
-]
+
 
 const Index: FC = () => {
 
+	const [list, setList] = useState<any[]>([])
+	useEffect(() => {
+		getEssayCountInit()
+	}, [])
+	function getEssayCountInit() {
+		getEssayCount().then(res => {
+			setList(res.data)
+		})
+	}
+	const dec_list = [
+		{
+			text: '免责声明', dec: '博客内容免责声明', icon: require('../../assets/image/main/mianze.svg'),
+			onclick: () => Taro.navigateTo({ url: '/pages/about/view/relief/index' })
+		},
+		{
+			text: '联系博主', dec: '博主常用联系方式', icon: require('../../assets/image/main/lianxifangshi.svg'),
+			onclick: () => Taro.navigateTo({ url: '/pages/about/view/contact/index' })
+		},
+		{ text: '意见反馈', dec: '博客内容意见反馈', icon: require('../../assets/image/main/yijianfankui.svg') },
+		// { text: '打赏博主', dec: '打赏博主', icon: require('../../assets/image/main/yijianfankui.svg'), onclick: () => handleMoney() },
+	]
 	return (
 		<View className='about'>
 			<View className='about_top_box'>
@@ -37,14 +42,16 @@ const Index: FC = () => {
 					></Image>
 				</View>
 				<View className='name mb_20'>yhyang</View>
-				<View className='dec'>苍山负雪，明竹天南。</View>
+				<View className='dec'>苍山负雪，明烛天南。</View>
 			</View>
 			<Corrugation />
 			<View className='sum'>
 				{list.map((v, i) => {
 					return (
 						<View className='sum_item'>
-							<View className={`num${i} mb_10`}>{v.num}</View>
+							<View className={`num${i} mb_10`}>
+								<NumberCounter start={0} end={v.count} />
+							</View>
 							<View className='text4'>{v.text}</View>
 						</View>
 					)

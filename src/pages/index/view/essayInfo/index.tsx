@@ -2,16 +2,16 @@ import { FC, useEffect, useState } from 'react'
 import { View, Text, Image } from '@tarojs/components'
 import dayjs from 'dayjs'
 import './index.scss'
-import Header from '../../components/header/Header'
-import RefreshScrollView from '../../components/refresh/index'
-import { getWeek } from '../../utils/utils'
+import Header from '../../../../components/header/Header'
+import RefreshScrollView from '../../../../components/refresh/index'
+import { getWeek } from '../../../../utils/utils'
 import { styleText } from './common'
 // import { textDemo } from './test'
-import { getEssayData } from '../../api/main'
+import { getEssayData } from '../../../../api/main'
 import { IEssay } from 'src/interface/essay'
 import Skeleton from './skeleton'
 import { getCurrentInstance } from '@tarojs/taro'
-import common from '../../utils/common'
+import common from '../../../../utils/common'
 // const text = styleText + textDemo
 interface IProps {
   // _id: string
@@ -45,12 +45,12 @@ const Index: FC<IProps> = () => {
       <Header title='文章详情' />
       <View className='give_box dis_aj box-sha1'>
         <Image className='give_box_img'
-          src={require('../../assets/image/main/31dianzan.svg')}
+          src={require('../../../../assets/image/main/31dianzan.svg')}
         ></Image>
       </View>
       <View className='give_box1 dis_aj box-sha1'>
         <Image className='give_box_img'
-          src={require('../../assets/image/main/31pinglun.svg')}
+          src={require('../../../../assets/image/main/31pinglun.svg')}
         ></Image>
       </View>
       <RefreshScrollView height={65} refresh={refresh} >
