@@ -1,6 +1,6 @@
 import Taro from "@tarojs/taro";
 import { CACHE_CODE, CACHE_TOKEN, CACHE_USERINFO } from "./authority/config";
-import { NODE_DEV_API, NODE_PRODUCTION_API } from "./config";
+import { NODE_DEV_API, NODE_FUND_DEV_API, NODE_PRODUCTION_API } from "./config";
 
 // 错误定义
 const HTTP_STATUS = {
@@ -18,14 +18,18 @@ const HTTP_STATUS = {
 };
 
 // 获取基础域名
-const getBaseUrl = () => {
+const getBaseUrl = (fund) => {
   let BASE_URL = "";
-  if (process.env.NODE_ENV === "development") {
-    BASE_URL = NODE_DEV_API;
-    // BASE_URL = NODE_PRODUCTION_API;
-  } else {
-    BASE_URL = NODE_PRODUCTION_API;
+  if (fund) {
+    BASE_URL = NODE_FUND_DEV_API;
+    return BASE_URL;
   }
+  // if (process.env.NODE_ENV === "development") {
+  BASE_URL = NODE_DEV_API;
+  // BASE_URL = NODE_PRODUCTION_API;
+  // } else {
+  //   BASE_URL = NODE_PRODUCTION_API;
+  // }
   return BASE_URL;
 };
 
@@ -39,6 +43,7 @@ function handleError(res, reject) {
     // });
     reject();
   }
+  reject("handleError异常");
 }
 function formatData<T>(data: IResult<T>) {
   return {
@@ -53,13 +58,13 @@ interface IResult<T> {
   data: T;
 }
 
-const request = <T,>(url: string, param = {}, method, header = {}) => {
+const request = <T,>(url: string, param = {}, method, fund, header = {}) => {
   Taro.showLoading({
     title: "加载中",
   });
-  const BASE_URL = getBaseUrl();
+  const BASE_URL = getBaseUrl(fund);
   const token = Taro.getStorageSync(CACHE_TOKEN);
-
+  
   const handleHeader = {
     "content-type": "application/json",
     Authorization: `Bearer ` + token,
@@ -76,10 +81,10 @@ const request = <T,>(url: string, param = {}, method, header = {}) => {
       ...options,
       success(result) {
         const { data } = result;
-        if (data.code !== 200) {
+        if (!fund && data.code !== 200) {
           handleError(data, reject);
         } else {
-          const res = formatData<T>(data);
+          const res = formatData<T>(fund ? result : data);
           resolve(res);
         }
       },
@@ -94,11 +99,11 @@ const request = <T,>(url: string, param = {}, method, header = {}) => {
   });
 };
 
-function get<T>(url, param?: any) {
-  return request<T>(url, param, "get");
+function get<T>(url, param?: any, fund = false) {
+  return request<T>(url, param, "get", fund);
 }
-function post<T>(url, param) {
-  return request<T>(url, param, "post");
+function post<T>(url, param, fund = false) {
+  return request<T>(url, param, "post", fund);
 }
 
 export default { get, post };

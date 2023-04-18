@@ -130,7 +130,20 @@ const menulist = [
   { id: 3, text: "最近更新" },
   { id: 4, text: "最大点赞" },
 ];
+
+const holdCode = [
+  { FCODE: "165525" },
+  { FCODE: "110018" },
+  { FCODE: "485011" },
+  { FCODE: "003095" },
+  { FCODE: "320007" },
+  { FCODE: "161725" },
+  { FCODE: "004945" },
+  { FCODE: "519702" },
+];
+
 export default {
+  holdCode,
   loveList,
   story,
   protraitN,

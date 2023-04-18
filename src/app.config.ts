@@ -13,6 +13,8 @@ export default defineAppConfig({
     "pages/about/view/contact/index",
     "pages/ai/index",
     "pages/ai/view/aiSearch/index",
+    "pages/fund/index",
+    "pages/fund/view/info/index",
   ],
   tabBar: {
     color: "#9c9d9e",
@@ -33,12 +35,12 @@ export default defineAppConfig({
         iconPath: "assets/image/tabs/jiqiren.png",
         selectedIconPath: "assets/image/tabs/jiqiren1.png",
       },
-      // {
-      //   pagePath: "pages/mapDepot/index",
-      //   text: "图库",
-      //   iconPath: "assets/image/tabs/fenlei.png",
-      //   selectedIconPath: "assets/image/tabs/fenlei1.png",
-      // },
+      {
+        pagePath: "pages/fund/index",
+        text: "图库",
+        iconPath: "assets/image/tabs/fenlei.png",
+        selectedIconPath: "assets/image/tabs/fenlei1.png",
+      },
       {
         pagePath: "pages/love/index",
         text: "和她",
@@ -65,6 +67,8 @@ export default defineAppConfig({
     // 1. key 值指定第三方组件名字，以小写开头
     // 2. value 值指定第三方组件 js 文件的相对路径
     parcer: "./components/mp-htmlwx",
+    "ec-canvas": "./components/ec-canvas/ec-canvas",
+
     // skeleton: "./sckeleton/index/skeleton",
     // nabar: "./sckeleton/index/taroConvert/navbar",
   },

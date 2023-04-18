@@ -1,6 +1,6 @@
 {
   "setting": {
-    "compileHotReLoad": true,
+    "compileHotReLoad": false,
     "bigPackageSizeSupport": true,
     "preloadBackgroundData": false
   },
@@ -98,6 +98,20 @@
           "name": "pages/love/view/mapDepot/index",
           "pathName": "pages/love/view/mapDepot/index",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/fund/index",
+          "pathName": "pages/fund/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/fund/view/info/index",
+          "pathName": "pages/fund/view/info/index",
+          "query": "code=165525",
           "launchMode": "default",
           "scene": null
         }

@@ -7,6 +7,7 @@ import WaterfallPhoto from '../../../../components/WaterfallPhoto'
 import throttle from 'lodash/throttle'
 import UploadFile from './components/upload'
 import { getMapDepotData } from '../../../../api/love'
+import Skeleton from './skeleton'
 
 
 let _throttle: any;
@@ -59,18 +60,20 @@ const Index: FC = () => {
     <View className='mapDepot_box'>
       <Header title='图库' />
       {/* <UploadFile onUploadSuccess={onUploadSuccess} /> */}
-      <View className='mapDepot_box_main_box bag'>
-        <RefreshScrollView height={60}
-          refresh={refresh}
-          loadMore={loadMore}
-        >
-          <View className='item_box'>
-            <WaterfallPhoto showList={showList} />
-          </View>
-        </RefreshScrollView>
-      </View>
 
-    </View>
+      {loading ? <Skeleton /> :
+        <View className='mapDepot_box_main_box bag'>
+          <RefreshScrollView height={60}
+            refresh={refresh}
+            loadMore={loadMore}
+          >
+            <View className='item_box'>
+              <WaterfallPhoto showList={showList} />
+            </View>
+          </RefreshScrollView>
+        </View>
+      }
+    </View >
   )
 }
 

@@ -30,6 +30,7 @@ const config = {
       pxtransform: {
         enable: true,
         config: {
+          selectorBlackList: ['nut-']
 
         }
       },
@@ -66,7 +67,7 @@ const config = {
       }
     },
 
-    esnextModules: ['taro-ui', 'taro-skeleton']
+    esnextModules: ['taro-skeleton']
   },
   rn: {
     appName: 'taroDemo',
@@ -75,6 +76,9 @@ const config = {
         enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
       }
     }
+  },
+  sass: {
+    data: `@import "@nutui/nutui-react-taro/dist/styles/variables.scss";`
   }
 }
 

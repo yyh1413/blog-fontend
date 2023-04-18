@@ -2,6 +2,33 @@ page {
   //这里限定了变量的作用域是 body
   --bule-color: #35aed3;
   --bag-color: rgb(248, 248, 248);
+
+  --nutui-brand-color: #1961e6;
+  --nutui-brand-color-start: #ff404f;
+  --nutui-brand-color-end: #fa2c19;
+  --nutui-brand-link-color: #396acc;
+  --nutui-brand-text-color: #ffffff;
+}
+.nut-table__main__head__tr__th,
+.nut-table__main__body__tr__th,
+.nut-table__main__head__tr__td,
+.nut-table__main__body__tr__td {
+  border-bottom: 1px solid #ddd !important;
+}
+.nut-table__main__head__tr__th,
+.nut-table__main__body__tr__th {
+  color: rgb(139, 139, 139) !important;
+}
+
+.nut-tabs .nut-tabs__titles {
+  background-color: #fff !important;
+  border-bottom: 1px solid #ddd !important;
+  position: sticky !important;
+  top: -1px !important;
+  z-index: 1 !important;
+}
+.nut-tabpane {
+  padding: 0 !important;
 }
 .bag {
   background-color: var(--bag-color);
@@ -353,4 +380,29 @@ page {
 
 .skeleton {
   padding: 10px 20px !important;
+}
+
+$rc: rgb(233, 5, 5);
+$rbc: rgb(255, 233, 233);
+$gc: rgb(55, 182, 87);
+$gbc: rgb(233, 255, 233);
+.s_r {
+  color: $rc;
+}
+.g_r {
+  color: $gc;
+}
+.b_r {
+  background-color: $rbc;
+}
+.b_g {
+  background-color: $gbc;
+}
+.sg_r {
+  color: $rc;
+  background-color: $rbc;
+}
+.gg_r {
+  color: $gc;
+  background-color: $gbc;
 }

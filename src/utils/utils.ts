@@ -1,3 +1,5 @@
+import Taro from "@tarojs/taro";
+
 // 计算目标日期距离当天日期间隔几天，返回结果为负数，即：过去的几天
 function diffDate(_date = "2022-02-08") {
   // 给日期类对象添加日期差方法，返回日期与diff参数日期的时间差，单位为天
@@ -132,6 +134,66 @@ const urlEncode = (url: string, data: any) => {
   //看原始url地址中开头是否带?，然后拼接处理好的参数
   return (url += (url.indexOf("?") < 0 ? "?" : "") + getParam(data));
 };
+
+/**
+ * 获取股票开盘时间
+ * @returns
+ */
+async function getLatestUpdateTime() {
+  const now = new Date();
+  const today = now.toLocaleDateString("zh-CN", { timeZone: "Asia/Shanghai" });
+
+  // 判断今天是否是工作日
+  const isWorkday = await isWorkdayInChina(today);
+  if (isWorkday) {
+    // 如果今天是工作日，判断当前时间是否在开盘时间内，如果是，返回当前时间，否则返回最近一次的收盘时间
+    const openTime = new Date(`${today} 09:30:00`);
+    const closeTime = new Date(`${today} 15:00:00`);
+    if (now >= openTime && now <= closeTime) {
+      return now.toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" });
+    } else {
+      return closeTime.toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" });
+    }
+  } else {
+    // 如果今天是节假日，计算最近一次的收盘时间
+    const lastCloseTime = new Date(`${today} 15:00:00`);
+    if (now < lastCloseTime) {
+      lastCloseTime.setDate(lastCloseTime.getDate() - 1);
+    }
+
+    // 增加计数器和循环次数阈值
+    let count = 0;
+    const maxCount = 10;
+
+    while (
+      (await isWorkdayInChina(
+        lastCloseTime.toLocaleDateString("zh-CN", { timeZone: "Asia/Shanghai" })
+      )) === false
+    ) {
+      lastCloseTime.setDate(lastCloseTime.getDate() - 1);
+      count++;
+      if (count >= maxCount) {
+        throw new Error("无法计算最近一次的收盘时间");
+      }
+    }
+    return lastCloseTime.toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" });
+  }
+}
+
+async function isWorkdayInChina(dateStr) {
+  const url = `https://timor.tech/api/holiday/info/${dateStr.replace(
+    /\//g,
+    "-"
+  )}`;
+  const result = await Taro.request({ url }).then((response) => response.data);
+  if (result.code === 0) {
+    // 0 代表成功，1 代表失败
+    return result.type.type === 0;
+  } else {
+    console.error(result.msg);
+    throw new Error(result.msg);
+  }
+}
 export {
   diffDate,
   getCurrentTime,
@@ -139,4 +201,5 @@ export {
   formatDate,
   handlePublishTimeDesc,
   urlEncode,
+  getLatestUpdateTime,
 };

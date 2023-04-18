@@ -1,0 +1,81 @@
+$fund_s: 26px;
+
+.fund_box {
+  .popup {
+    height: 400px;
+    width: 89%;
+    border-radius: 20px;
+    margin: 20px;
+    padding: 20px;
+    .popup_top {
+      font-size: 30px;
+      color: rgb(122, 121, 121);
+      border-bottom: 1px solid rgb(241, 241, 241);
+      height: 60px;
+    }
+    .popup_buttom {
+      height: 340px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      .item {
+        box-sizing: border-box;
+        width: 32%;
+        display: flex;
+        flex-direction: column;
+        border-radius: 5%;
+        padding: 10px;
+        .title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+        .zhishu {
+          color: rgb(233, 5, 5);
+        }
+        .bot {
+          display: flex;
+          justify-content: space-between;
+          view {
+            font-size: $fund_s;
+          }
+        }
+      }
+    }
+  }
+  scroll-view {
+    background: var(--bag-color);
+
+    .fund_head {
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      height: 150px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 15px;
+      .fund_head_top {
+        height: 50%;
+        border-bottom: 1px solid rgb(241, 241, 241);
+        padding-bottom: 10px;
+        .tag {
+          height: 40px;
+          font-size: $fund_s;
+          padding: 0 10px;
+        }
+      }
+      .fund_head_bottom {
+        height: 50%;
+      }
+    }
+
+    .fund_content {
+      border-radius: 15px;
+      overflow: hidden;
+      margin: 0 20px;
+      .nut-tabpane {
+        padding: 10px;
+      }
+    }
+  }
+}
