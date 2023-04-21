@@ -1,0 +1,119 @@
+.fund_search {
+  scroll-view {
+    background: var(--bag-color);
+  }
+  .header {
+    padding: 0 20px;
+    display: flex;
+    .header_search {
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      height: 60px;
+      background-color: rgb(245, 245, 245);
+      border-radius: 50px;
+      overflow: hidden;
+      flex: 1;
+    }
+    .search_but {
+      margin-left: 50px;
+      color: var(--bule-color);
+      font-weight: 400;
+      font-size: 30px;
+    }
+    .icon-box-img {
+      height: 38px;
+      width: 38px;
+      color: var(--bule-color);
+    }
+  }
+  .fund_search_box {
+    padding: 20px;
+  }
+
+  .recommend {
+    display: flex;
+    flex-wrap: wrap;
+    .recommend_item {
+      padding: 10px 20px;
+      background-color: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      font-size: 26px;
+      font-weight: 300;
+      margin: 5px;
+      .recommend_img {
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }
+
+  .hot {
+    padding: 20px;
+    width: 94%;
+    border-radius: 20px;
+    background-color: #fff;
+    overflow: hidden;
+    background-image: linear-gradient(to bottom, #ffdfdf, #fff);
+    .hot_list .num {
+      color: rgb(148, 148, 148);
+    }
+    .t1 {
+      color: rgb(247, 56, 9);
+    }
+    .w1 {
+      width: 50px;
+      text-align: center;
+    }
+    .w2 {
+      flex: 1;
+    }
+    .w3 {
+      width: 150px;
+      text-align: right;
+    }
+  }
+
+  .fund_search_content {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    .serach_item {
+      padding: 20px 0;
+      border-bottom: 1px solid rgb(233, 233, 233);
+      .t1 {
+        // font-weight: 300;
+        font-size: 28px;
+      }
+      .bot {
+        font-size: 24px;
+        .text_r {
+          color: rgb(243, 102, 20);
+        }
+        .text_b,
+        .text_g {
+          font-size: 20px;
+          font-weight: 300;
+          padding: 5px 10px;
+          color: rgb(44, 149, 247);
+          background-color: rgb(226, 243, 255);
+          border-radius: 10px;
+        }
+        .text_g {
+          color: rgb(247, 118, 44);
+          background-color: rgb(255, 239, 226);
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+
+  .nut-input-border {
+    padding: 0;
+    input {
+      background-color: rgb(245, 245, 245);
+    }
+  }
+}

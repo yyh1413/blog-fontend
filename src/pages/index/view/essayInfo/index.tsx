@@ -27,8 +27,6 @@ const Index: FC<IProps> = () => {
     getEssayData({ _id: router?.params?._id }).then(res => {
       const { code, data } = res;
       if (code === 200) {
-        console.log(dayjs(data?.userName));
-
         setData(data)
       }
     })

@@ -2,6 +2,7 @@ import { stock } from "../interface/essay";
 import api from "../utils/http";
 import common from "../utils/common";
 import { formatFundData, formatFundInfoData } from "../utils/famatData";
+import { urlEncode } from "../utils/utils";
 
 //查询股票行情的API接口
 async function getStockData() {
@@ -65,10 +66,39 @@ async function getPerformanceData(param) {
   const res = await api.get<any>("fund/fundVPageAcc", param, true);
   return res;
 }
-
+async function getFundFilesData(param) {
+  const res = await api.get<any>("fund/fundMNMangerList", param, true);
+  return res;
+}
+async function getMangerInfoData(param) {
+  const res = await api.get<any>("fund/fundMSNMangerInfo", param, true);
+  return res;
+}
+async function getGSInfoData(param) {
+  const res = await api.get<any>(
+    `fund/companyApi2?action=companyarchives`,
+    param,
+    true
+  );
+  return res;
+}
+async function getFundRankData(param) {
+  const url = urlEncode("fund/fundMNRank", param);
+  const res = await api.get<any>(url, undefined, true);
+  return res;
+}
+async function getFundSearchData(param) {
+  const res = await api.get<any>('fund/fundSearch', param, true);
+  return res;
+}
 export {
+  getFundSearchData,
+  getFundRankData,
+  getGSInfoData,
+  getMangerInfoData,
   getStockData,
   getHoldFundListData,
   getFundInfoData,
   getPerformanceData,
+  getFundFilesData,
 };

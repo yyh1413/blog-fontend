@@ -5,23 +5,23 @@ export function formatFundData(data) {
   data.forEach((v) => {
     if (i === 0) {
       const ex = v.data.Expansion;
-      obj.FCODE = ex.FCODE; //基金code
-      obj.SHORTNAME = ex.SHORTNAME; // 基金名
-      obj.GZTIME = ex.GZTIME; // 估值时间
-      obj.GZ = ex.GZ; // 估值
-      obj.GSZZL = ex.GSZZL; // 估值百分
-      obj.DWJZ = ex.DWJZ; // 前一天估值数
+      obj.FCODE = ex?.FCODE; //基金code
+      obj.SHORTNAME = ex?.SHORTNAME; // 基金名
+      obj.GZTIME = ex?.GZTIME; // 估值时间
+      obj.GZ = ex?.GZ; // 估值
+      obj.GSZZL = ex?.GSZZL; // 估值百分
+      obj.DWJZ = ex?.DWJZ; // 前一天估值数
     }
     if (i === 1) {
-      const ex = v.data.data[v.data.data.length - 1];
-      obj.FSRQ = ex.FSRQ; // 净值时间
-      obj.DWJZ = ex.DWJZ; // 净值
-      obj.JZZZL = ex.JZZZL; // 净值百分
+      const ex = v.data?.data[v.data.data?.length - 1];
+      obj.FSRQ = ex?.FSRQ; // 净值时间
+      obj.DWJZ = ex?.DWJZ; // 净值
+      obj.JZZZL = ex?.JZZZL; // 净值百分
     }
     if (i === 2) {
       //"title": "2021年度", // 具体周期 或者  Z 近一周  Y 近一月  3Y 近三月  6Y 近六月  1N 近1年  2N 近2年  3N 近3年  5N 近5年  JN 今年来  LN 成立来
-      const ex = v.data.Datas as any[];
-      ex.forEach((z) => {
+      const ex = v.data?.Datas as any[];
+      ex?.forEach((z) => {
         obj[z.title] = z;
       });
     }
@@ -40,8 +40,15 @@ export function formatFundData(data) {
 export function formatFundInfoData(value, v) {
   value[0] = {
     ...value[0],
-    history: v[2].data.Datas,
-    jz: v[1].data.data,
+    history: v[2].data?.Datas,
+    jz: v[1].data?.data,
   };
   return value;
+}
+
+export function convertDaysToYears(days) {
+  const yearDays = 365; // 一年的天数
+  const years = Math.floor(days / yearDays); // 计算年数
+  const remainingDays = days % yearDays; // 计算剩余天数
+  return `${years}年${remainingDays}天`;
 }

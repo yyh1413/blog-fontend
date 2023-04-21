@@ -8,7 +8,7 @@ $fund_s: 26px;
     margin: 20px;
     padding: 20px;
     .popup_top {
-      font-size: 30px;
+      font-size: 28px;
       color: rgb(122, 121, 121);
       border-bottom: 1px solid rgb(241, 241, 241);
       height: 60px;
@@ -29,9 +29,6 @@ $fund_s: 26px;
         .title {
           font-size: 30px;
           margin-bottom: 10px;
-        }
-        .zhishu {
-          color: rgb(233, 5, 5);
         }
         .bot {
           display: flex;
@@ -66,6 +63,15 @@ $fund_s: 26px;
       }
       .fund_head_bottom {
         height: 50%;
+        .tubiao {
+          width: 50px;
+          height: 50px;
+        }
+        .t1 {
+          font-size: 30px;
+          width: 300;
+          color: #292828;
+        }
       }
     }
 

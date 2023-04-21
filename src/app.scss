@@ -9,6 +9,12 @@ page {
   --nutui-brand-link-color: #396acc;
   --nutui-brand-text-color: #ffffff;
 }
+
+input::-webkit-input-placeholder {
+  color: rgb(92, 90, 90); /* 修改 placeholder 文本颜色为灰色 */
+  font-size: 26px;
+  font-weight: 300;
+}
 .nut-table__main__head__tr__th,
 .nut-table__main__body__tr__th,
 .nut-table__main__head__tr__td,
@@ -91,6 +97,9 @@ page {
 }
 .mb_20 {
   margin-bottom: 20px;
+}
+.mb_40 {
+  margin-bottom: 40px;
 }
 .mb_30 {
   margin-bottom: 30px;

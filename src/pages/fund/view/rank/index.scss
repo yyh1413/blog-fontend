@@ -1,0 +1,28 @@
+.fund_rank_box {
+  scroll-view {
+    background: var(--bag-color);
+  }
+
+  .time {
+    height: 100px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    width: 100%;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch; /* 隐藏滚动条但允许滚动 */
+    .time_item {
+      width: 150px;
+      height: 70px;
+      padding: 0 20px;
+      font-weight: 300;
+      color: rgb(85, 85, 85);
+    }
+    .action {
+      background-color: rgb(215, 231, 250);
+      color: rgb(36, 92, 243);
+      border-radius: 40px;
+    }
+  }
+}

@@ -15,6 +15,8 @@ export default defineAppConfig({
     "pages/ai/view/aiSearch/index",
     "pages/fund/index",
     "pages/fund/view/info/index",
+    "pages/fund/view/rank/index",
+    "pages/fund/view/search/index",
   ],
   tabBar: {
     color: "#9c9d9e",
@@ -37,9 +39,9 @@ export default defineAppConfig({
       },
       {
         pagePath: "pages/fund/index",
-        text: "图库",
-        iconPath: "assets/image/tabs/fenlei.png",
-        selectedIconPath: "assets/image/tabs/fenlei1.png",
+        text: "基金",
+        iconPath: "assets/image/tabs/jijin.png",
+        selectedIconPath: "assets/image/tabs/jijin_1.png",
       },
       {
         pagePath: "pages/love/index",

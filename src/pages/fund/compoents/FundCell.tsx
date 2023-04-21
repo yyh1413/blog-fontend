@@ -1,6 +1,6 @@
 import { View, Text } from '@tarojs/components'
 
-export function FundCell({ data, style = {} }) {
+export function FundCell({ data, style = {}, className = '' }) {
 	let num = data;
 	if (!data) return <Text />;
 	if (!num.includes("-")) {
@@ -9,6 +9,7 @@ export function FundCell({ data, style = {} }) {
 		num = num + '%'
 	}
 	return (
-		<Text className={`${num.includes("+") ? 's_r' : 'g_r'}`} style={{ ...style }}>{num}</Text>
+		<Text className={`${num.includes("+") ? 's_r' : 'g_r'} ${className}`}
+			style={{ ...style }}>{num}</Text>
 	)
 }

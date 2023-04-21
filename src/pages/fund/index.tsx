@@ -5,10 +5,11 @@ import { getStockData } from '../../api/fund';
 import RefreshScrollView from '../../components/refresh';
 import Header from '../../components/header/Header';
 import Skeleton from './skeleton';
-import { Icon, Popup, Tabs } from '@nutui/nutui-react-taro';
+import { Animate, Icon, Popup, Tabs } from '@nutui/nutui-react-taro';
 import { stock } from "../../interface/essay";
 import { getLatestUpdateTime } from '../../utils/utils';
 import Hold from './compoents/hold'
+import Taro from '@tarojs/taro';
 const Index: FC = () => {
 	const [init, setInit] = useState<stock[]>([]);
 	const [loading, setLoading] = useState<boolean>(true);
@@ -27,11 +28,26 @@ const Index: FC = () => {
 			setInit(res.data)
 		}).finally(() => setLoading(false))
 	}
+	function handlePage(flag) {
+		let url;
+		switch (flag) {
+			case 'phb':
+				url = '/pages/fund/view/rank/index'
+				break;
+			case 'search':
+				url = '/pages/fund/view/search/index'
+				break;
+		}
+		Taro.navigateTo({
+			url: url,
+		});
+	}
+
 
 	return (
 		<View className='fund_box'>
 			<Header title='基金' back={false} />
-			<RefreshScrollView height={65}>
+			{loading ? <Skeleton /> : <RefreshScrollView height={65}>
 				{/* {loading ? <Skeleton /> : itemCompnent()} */}
 				<Popup
 					visible={showBasic} className='popup' position="top"
@@ -43,8 +59,13 @@ const Index: FC = () => {
 							init?.map(v => {
 								return (
 									<View className={`item ${v.change.includes("+") ? 'b_r' : 'b_g'}`}>
-										<View className='title'>{v.name}</View>
-										<View className='zhishu'>{v.point}</View>
+										<View className='title dis_ac'>{v.name}
+											<Icon name={
+												`${v.change.includes("-") ? 'triangle-down' : 'triangle-up'}`
+											} size="10"
+												color={`${v.change.includes("-") ? 'rgb(55, 182, 87)' : 'rgb(233, 5, 5)'}`}></Icon>
+										</View>
+										<View className={` ${v.change.includes("-") ? 'g_r' : 's_r'}`}>{v.point}</View>
 										<View className='bot'>
 											<View className={`${v.change.includes("+") ? 's_r' : 'g_r'}`}>{v.change}</View>
 											<View className={`${v.change.includes("+") ? 's_r' : 'g_r'}`}>{v.changePercent}</View>
@@ -62,21 +83,33 @@ const Index: FC = () => {
 						</Text>
 						<Text className={`mr_20 ${init[0]?.change.includes("+") ? 's_r' : 'g_r'}`}>{init[0]?.point}</Text>
 						<Text className={`tag dis_aj mr_20 ${init[0]?.change.includes("+") ? 'sg_r' : 'gg_r'}`}>	{init[0]?.changePercent}</Text>
-						<Icon name="rect-down" size="18"
+						<Icon name="rect-down" size="18" color='#bbb'
 							onClick={() => { setShowBasic(true) }}></Icon>
+						<Icon name="search" size="20" color='#bbb' style={{ position: 'absolute', right: 30 }}
+							onClick={() => handlePage("search")}></Icon>
+
 					</View>
-					<View className='fund_head_bottom dis_ac'></View>
+					<View className='fund_head_bottom dis_ac'>
+						<View className=' dis_ac' onClick={() => handlePage('phb')}>
+							<Animate type="jump" loop={true}>
+								<Image className='tubiao mr_10'
+									src={require('../../assets/image/main/paihangbang-.png')}
+								></Image>
+							</Animate>
+							<Text className='t1'>排行榜</Text>
+						</View>
+					</View>
 				</View>
 				<View className='fund_content'>
 					<Tabs value={tab1value} onChange={({ paneKey }) => {
 						setTab1value(paneKey)
 					}} type="smile" leftAlign autoHeight>
 						<Tabs.TabPane title="持有"> <Hold /> </Tabs.TabPane>
-						<Tabs.TabPane title="Tab 2"> Tab 2 </Tabs.TabPane>
-						<Tabs.TabPane title="Tab 3"> Tab 3 </Tabs.TabPane>
+						{/* <Tabs.TabPane title="Tab 2"> Tab 2 </Tabs.TabPane>
+						<Tabs.TabPane title="Tab 3"> Tab 3 </Tabs.TabPane> */}
 					</Tabs>
 				</View>
-			</RefreshScrollView>
+			</RefreshScrollView>}
 		</View>
 	)
 }
