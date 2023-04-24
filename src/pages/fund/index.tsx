@@ -5,7 +5,7 @@ import { getStockData } from '../../api/fund';
 import RefreshScrollView from '../../components/refresh';
 import Header from '../../components/header/Header';
 import Skeleton from './skeleton';
-import { Animate, Icon, Popup, Tabs } from '@nutui/nutui-react-taro';
+import { Animate, Icon, NoticeBar, Popup, Tabs, WaterMark } from '@nutui/nutui-react-taro';
 import { stock } from "../../interface/essay";
 import { getLatestUpdateTime } from '../../utils/utils';
 import Hold from './compoents/hold'
@@ -37,18 +37,21 @@ const Index: FC = () => {
 			case 'search':
 				url = '/pages/fund/view/search/index'
 				break;
+			case 'jp':
+				url = '/pages/fund/view/manger/index'
+				break;
 		}
 		Taro.navigateTo({
 			url: url,
 		});
 	}
-
+	const text = '欢迎使用我的基金产品！为您提供最全面、最及时的基金信息和服务，助您轻松管理和投资您的基金资产，您可以随时查询各类基金的实时净值、涨跌幅、历史走势等数据'
 
 	return (
 		<View className='fund_box'>
 			<Header title='基金' back={false} />
 			{loading ? <Skeleton /> : <RefreshScrollView height={65}>
-				{/* {loading ? <Skeleton /> : itemCompnent()} */}
+				<NoticeBar text={text} />
 				<Popup
 					visible={showBasic} className='popup' position="top"
 					onClose={() => { setShowBasic(false) }}>
@@ -90,7 +93,7 @@ const Index: FC = () => {
 
 					</View>
 					<View className='fund_head_bottom dis_ac'>
-						<View className=' dis_ac' onClick={() => handlePage('phb')}>
+						<View className=' dis_ac mr_20' onClick={() => handlePage('phb')}>
 							<Animate type="jump" loop={true}>
 								<Image className='tubiao mr_10'
 									src={require('../../assets/image/main/paihangbang-.png')}
@@ -98,7 +101,16 @@ const Index: FC = () => {
 							</Animate>
 							<Text className='t1'>排行榜</Text>
 						</View>
+						<View className=' dis_ac' onClick={() => handlePage('jp')}>
+							<Animate type="jump" loop={true}>
+								<Image className='tubiao mr_10'
+									src={require('../../assets/image/main/jinpai.png')}
+								></Image>
+							</Animate>
+							<Text className='t1'>金牌经理</Text>
+						</View>
 					</View>
+
 				</View>
 				<View className='fund_content'>
 					<Tabs value={tab1value} onChange={({ paneKey }) => {
@@ -110,6 +122,14 @@ const Index: FC = () => {
 					</Tabs>
 				</View>
 			</RefreshScrollView>}
+			<WaterMark
+				style={{ transform: "rotate(5deg)" }}
+				className="mark1"
+				fontSize={14}
+				fontColor={"rgba(0, 0, 0, .10)"}
+				zIndex={1}
+				content="yhyang"
+			></WaterMark>
 		</View>
 	)
 }

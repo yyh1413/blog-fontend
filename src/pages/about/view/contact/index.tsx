@@ -16,7 +16,7 @@ const Index: FC = () => {
                     ></Image>
                 </View>
                 <View className='name mb_20'>yhyang</View>
-                <View className='text4 mb_20'>仓鼠方悦，名声进会</View>
+                <View className='text4 mb_20'>苍山负雪，明烛天南</View>
                 <View className='about_top_box_logo_box'>
                     {common.contact.map(v => (
                         <Image className='about_top_box_logo_itme'

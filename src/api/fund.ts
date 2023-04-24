@@ -3,6 +3,7 @@ import api from "../utils/http";
 import common from "../utils/common";
 import { formatFundData, formatFundInfoData } from "../utils/famatData";
 import { urlEncode } from "../utils/utils";
+import Taro from "@tarojs/taro";
 
 //查询股票行情的API接口
 async function getStockData() {
@@ -14,9 +15,14 @@ async function getStockData() {
     "s_sh000016", // 上证50
     "s_sh000905", // 中证500
   ];
-  let result = await api.post<Array<stock>>("api/fund/getStockData", {
-    str: value.join(","),
-  });
+  let result = await api.post<Array<stock>>(
+    "api/fund/getStockData",
+    {
+      str: value.join(","),
+    },
+    false,
+    false
+  );
   result.data.forEach((v) => {
     if (!v.change.includes("-")) {
       v.change = "+" + v.change;
@@ -42,9 +48,10 @@ async function getHoldFundListData(fcode?: any[]) {
   const qe: Promise<any>[] = [];
   holdCode.forEach((v) => {
     urlarr.forEach((j) => {
-      qe.push(api.get<any>(j, v, true));
+      qe.push(api.get<any>(j, v, true, false));
     });
   });
+
   const res = await Promise.all(qe).then((v) => {
     let value = formatFundData(v);
     if (fcode) {
@@ -88,10 +95,21 @@ async function getFundRankData(param) {
   return res;
 }
 async function getFundSearchData(param) {
-  const res = await api.get<any>('fund/fundSearch', param, true);
+  const res = await api.get<any>("fund/fundSearch", param, true);
+  return res;
+}
+async function getMangerData() {
+  const qe: Promise<any>[] = [];
+  common.mangerCode.forEach((v) => {
+    qe.push(api.get<any>("fund/fundMSNMangerInfo", v, true));
+  });
+  const res = await Promise.all(qe).then((v) => {
+    return v.map((v) => v.data.Datas);
+  });
   return res;
 }
 export {
+  getMangerData,
   getFundSearchData,
   getFundRankData,
   getGSInfoData,

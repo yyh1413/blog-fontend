@@ -140,9 +140,24 @@ const holdCode = [
   { FCODE: "161725" },
   { FCODE: "004945" },
   { FCODE: "519702" },
+  { FCODE: "501057" },
 ];
-
+const mangerCode = [
+  { FCODE: "30657417" },
+  { FCODE: "30198031" },
+  { FCODE: "30040544" },
+  { FCODE: "30042957" },
+  { FCODE: "30608901" },
+  { FCODE: "30189744" },
+  { FCODE: "30324814" },
+  { FCODE: "30541469" },
+  { FCODE: "30358212" },
+  { FCODE: "30189737" },
+  { FCODE: "30040539" },
+  { FCODE: "30441407" },
+];
 export default {
+  mangerCode,
   holdCode,
   loveList,
   story,

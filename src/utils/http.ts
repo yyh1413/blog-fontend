@@ -24,12 +24,12 @@ const getBaseUrl = (fund) => {
     BASE_URL = NODE_FUND_DEV_API;
     return BASE_URL;
   }
-  // if (process.env.NODE_ENV === "development") {
-  BASE_URL = NODE_DEV_API;
-  // BASE_URL = NODE_PRODUCTION_API;
-  // } else {
-  //   BASE_URL = NODE_PRODUCTION_API;
-  // }
+  if (process.env.NODE_ENV === "development") {
+    BASE_URL = NODE_DEV_API;
+    //  BASE_URL = NODE_PRODUCTION_API;
+  } else {
+    BASE_URL = NODE_PRODUCTION_API;
+  }
   return BASE_URL;
 };
 
@@ -58,13 +58,21 @@ interface IResult<T> {
   data: T;
 }
 
-const request = <T,>(url: string, param = {}, method, fund, header = {}) => {
-  Taro.showLoading({
-    title: "加载中",
-  });
+const request = <T>(
+  url: string,
+  param = {},
+  method,
+  fund,
+  header = {},
+  load
+) => {
+  load &&
+    Taro.showLoading({
+      title: "加载中",
+    });
   const BASE_URL = getBaseUrl(fund);
   const token = Taro.getStorageSync(CACHE_TOKEN);
-  
+
   const handleHeader = {
     "content-type": "application/json",
     Authorization: `Bearer ` + token,
@@ -93,17 +101,17 @@ const request = <T,>(url: string, param = {}, method, fund, header = {}) => {
         reject(e);
       },
       complete() {
-        Taro.hideLoading();
+        load && Taro.hideLoading();
       },
     });
   });
 };
 
-function get<T>(url, param?: any, fund = false) {
-  return request<T>(url, param, "get", fund);
+function get<T>(url, param?: any, fund = false, load = true) {
+  return request<T>(url, param, "get", fund, undefined, load);
 }
-function post<T>(url, param, fund = false) {
-  return request<T>(url, param, "post", fund);
+function post<T>(url, param, fund = false, load = true) {
+  return request<T>(url, param, "post", fund, undefined, load);
 }
 
 export default { get, post };

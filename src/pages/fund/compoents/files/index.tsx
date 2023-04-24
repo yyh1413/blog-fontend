@@ -4,7 +4,7 @@ import { getFundFilesData, getMangerInfoData } from '../../../../api/fund';
 
 import { FundCell } from '../FundCell';
 import './index.scss'
-import { convertDaysToYears } from '../../../../utils/famatData';
+import { convertDaysToYears, formatNumber } from '../../../../utils/famatData';
 interface Iprops {
 	code: string,
 	ENDNAV: string,
@@ -25,15 +25,7 @@ const Index: FC<Iprops> = ({ code, ENDNAV, ESTABDATE }) => {
 		})
 
 	}
-	function formatNumber(number) {
-		if (number >= 1e8) {
-			return (number / 1e8).toFixed(2) + '亿';
-		} else if (number >= 1e4) {
-			return (number / 1e4).toFixed(2) + '万';
-		} else {
-			return number.toFixed(2);
-		}
-	}
+
 	return (
 		<View className='files_box'>
 			<View className='dis_jsb mb_40 dis_ac'>

@@ -1,0 +1,112 @@
+.fund_manger {
+  background-image: url("https://www.yangyuhao.cn/images/bgjl.png");
+  // background-position: center; // 背景图位置垂直水平居中
+  background-repeat: no-repeat; // 不平铺
+  background-size: contain;
+  height: 100vh;
+  padding-top: 340px;
+  .fund_manger_top {
+    .fund_manger_top_box {
+      background-image: linear-gradient(
+        to bottom right,
+        rgb(255, 255, 255),
+        rgb(247, 224, 203)
+      );
+      margin: 0 20px 30px 20px;
+      height: 400px;
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      .top {
+        padding: 0 20px;
+
+        flex: 1;
+        display: flex;
+        align-items: center;
+        .t1 {
+          font-size: 50px;
+        }
+        .t2 {
+          color: rgb(180, 119, 70);
+        }
+        .t3 {
+          font-size: 26px;
+
+          font-weight: 300;
+        }
+      }
+      .bot {
+        background-color: #fff;
+        height: 80px;
+        font-size: 30px;
+        padding: 0 20px;
+      }
+      .image,
+      image {
+        width: 280px;
+        height: 280px;
+      }
+    }
+  }
+
+  .fund_manger_bottom_box {
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #fff;
+    padding: 0 0 20px 20px;
+    margin: 0 20px;
+    .title {
+      height: 80px;
+      font-size: 30px;
+      font-weight: 500;
+      border-bottom: 1px solid rgb(235, 235, 235);
+    }
+    .manger_list {
+      .item {
+        display: flex;
+        margin: 40px 0;
+        image {
+          width: 130px;
+          height: 130px;
+        }
+        .tag {
+          display: flex;
+
+          view {
+            font-size: 20px;
+            font-weight: 300;
+            margin-right: 10px;
+            padding: 0 10px;
+            background-color: rgb(255, 246, 235);
+            color: rgb(180, 119, 70);
+            border-radius: 15px;
+          }
+        }
+
+        .dbz {
+          font-size: 26px;
+          font-weight: 300;
+          padding: 5px 10px;
+          border-radius: 10px;
+          color: #333333;
+          background-image: linear-gradient(
+            to right,
+            rgb(253, 246, 238),
+            rgb(255, 255, 255)
+          );
+          .image_box {
+            height: 45px;
+            width: 45px;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+          }
+          image {
+            width: 40px;
+            height: 40px;
+          }
+        }
+      }
+    }
+  }
+}

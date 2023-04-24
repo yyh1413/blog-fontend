@@ -46,9 +46,21 @@ export function formatFundInfoData(value, v) {
   return value;
 }
 
-export function convertDaysToYears(days) {
+export function convertDaysToYears(days, flag = false) {
   const yearDays = 365; // 一年的天数
   const years = Math.floor(days / yearDays); // 计算年数
   const remainingDays = days % yearDays; // 计算剩余天数
+  if (flag) {
+    return `${years}年`;
+  }
   return `${years}年${remainingDays}天`;
+}
+export function formatNumber(number, flag = false) {
+  if (number >= 1e8) {
+    return (number / 1e8).toFixed(flag ? 0 : 2) + "亿";
+  } else if (number >= 1e4) {
+    return (number / 1e4).toFixed(flag ? 0 : 2) + "万";
+  } else {
+    return number.toFixed(flag ? 0 : 2);
+  }
 }

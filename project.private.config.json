@@ -2,7 +2,8 @@
   "setting": {
     "compileHotReLoad": false,
     "bigPackageSizeSupport": true,
-    "preloadBackgroundData": false
+    "preloadBackgroundData": false,
+    "urlCheck": false
   },
   "condition": {
     "miniprogram": {
@@ -125,6 +126,13 @@
         {
           "name": "pages/fund/view/search/index",
           "pathName": "pages/fund/view/search/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/fund/view/manger/index",
+          "pathName": "pages/fund/view/manger/index",
           "query": "",
           "launchMode": "default",
           "scene": null

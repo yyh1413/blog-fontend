@@ -17,6 +17,7 @@ export default defineAppConfig({
     "pages/fund/view/info/index",
     "pages/fund/view/rank/index",
     "pages/fund/view/search/index",
+    "pages/fund/view/manger/index",
   ],
   tabBar: {
     color: "#9c9d9e",

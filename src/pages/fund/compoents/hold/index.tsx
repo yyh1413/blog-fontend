@@ -6,6 +6,7 @@ import { TableColumnProps } from '../../../../interface';
 import { Table } from '@nutui/nutui-react-taro';
 import { handleFundInfoPage } from '../../common';
 import { FundCell } from '../FundCell';
+import Taro from '@tarojs/taro';
 
 function CellClom({ value = '', cent = '' }) {
 	if (!value) {
@@ -100,14 +101,19 @@ const columns: TableColumnProps[] = [
 
 ]
 const Index: FC = () => {
-	const [loading, setLoading] = useState<boolean>(true);
 	const [data1, setData1] = useState<any>([])
 	useEffect(() => {
 		fetchData()
 	}, [])
 	async function fetchData() {
+		Taro.showLoading({ title: "加载中" })
 		getHoldFundListData().then(v => {
 			setData1(v)
+		}).finally(() => {
+			setTimeout(() => {
+				console.log('Taro.hideLoading()');
+				Taro.hideLoading()
+			}, 2000);
 		})
 	}
 
