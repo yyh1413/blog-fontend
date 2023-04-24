@@ -113,7 +113,7 @@ const Index: FC = () => {
 			setTimeout(() => {
 				console.log('Taro.hideLoading()');
 				Taro.hideLoading()
-			}, 2000);
+			}, 1500);
 		})
 	}
 
