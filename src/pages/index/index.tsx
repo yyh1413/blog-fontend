@@ -83,7 +83,7 @@ class Index extends Component<PropsWithChildren> {
           height={65}
           refresh={this.refresh}
         >
-          <View style={{ padding: '0 10px' }}>
+          <View style={{ padding: ' 0 10px' }}>
             {/* <Button onClick={this.clear}>点击</Button> */}
             <Swiper data={data} />
             <View className='main_content_box'>
